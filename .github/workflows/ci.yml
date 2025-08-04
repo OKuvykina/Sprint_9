@@ -1,0 +1,17 @@
+name: Selenoid Tests Workflow
+on:
+  push:
+    branches:
+      - develop
+# Перечень задач
+jobs:
+  # Единственная задача — склонировать код 
+  # и вывести в консоль дерево файлов
+  checkout-and-print-tree:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code  # Имя шага задаём сами
+        uses: actions/checkout@v3
+      # Выполняем команду tree в текущей директории
+      - name: Print project tree
+        run: tree .
